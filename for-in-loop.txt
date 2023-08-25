@@ -1,3 +1,3 @@
-# for-in loop iterates over: 
+# Iterates over: 
 - Enumerable own properties 
 - Inherited properties
