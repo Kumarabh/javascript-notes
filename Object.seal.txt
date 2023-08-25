@@ -1,0 +1,13 @@
+# Object.seal
+- properties can be modified, but can't be added/ deleted
+- used to seal formData objects
+
+const organisation = {
+  orgId: 101,
+  orgName: 'ORG 01'
+}
+
+Object.seal(organisation);
+organisation.orgName = 'bsl';
+
+console.log(organisation); // { orgId: 101, orgName: 'bsl' }
