@@ -1,2 +1,24 @@
 # Object.assign
 - Copy/merge enumerable own properties
+
+
+# Example
+const organisation = {
+  orgId: 101,
+  orgName: 'ORG'
+}
+
+const department = Object.create(organisation, {
+  deptId: { value: 201, enumerable: true},
+  deptName: { value: 'CSE', enumerable: true}
+}) // inherits organisation properties
+
+const person = Object.assign(
+  {
+    firstName: 'John', 
+    lastName: 'Doe'
+  },
+  department
+);
+
+console.log(person); // assign doesn't copy department inherited properties
