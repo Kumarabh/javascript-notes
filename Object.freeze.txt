@@ -6,3 +6,13 @@
 Object.freeze(organisation);
 organisation.orgId = 'bsl';
 console.log(organisation) // ORG 01
+
+# Unfreeze
+- There is no method to unseal or unfreeze. 
+- Below technique can be used to achieve
+
+const unfrozenOrganization = {
+  ...organisation
+}
+unfrozenOrganization.orgName = 'BSL';
+console.log(unfrozenOrganization) // BSL
