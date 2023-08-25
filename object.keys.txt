@@ -1,1 +1,2 @@
-
+# Object.keys
+- iterates over enumerable own properties
