@@ -2,11 +2,5 @@
 - Enumerable own properties 
 - Inherited properties
 
-# Object.keys
-- iterates over enumerable own properties
-
-# Object.values
-- iterates over enumerable own properties
-
 # Object.assign
 - Copy/merge enumerable own properties
