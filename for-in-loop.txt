@@ -1,3 +1,30 @@
 # Iterates over: 
 - Enumerable own properties 
 - Inherited properties
+
+
+# Example
+const organisation = {
+  orgId: 101,
+  orgName: 'ORG'
+}
+
+const person = Object.create(organisation, {
+  firstName: { value: 'John', enumerable: true},
+  lastName: { value: 'Doe', enumerable: true}
+})
+
+console.log(organisation.__proto__ === Object.prototype);
+console.log(person.__proto__ === organisation);
+
+for ( let key in person ) {
+  console.log(key);
+}
+
+console.log(Object.keys(person));
+console.log(Object.values(person));
+console.log(Object.entries(person))
+
+// for-in iterates over( enumerable own properties + inherited properties)
+// Object.keys, values, entries iterate over enumerable own properties
+// Object.assign copy/merge enumerable own properties
