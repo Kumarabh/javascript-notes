@@ -1,6 +1,3 @@
 # for-in loop iterates over: 
 - Enumerable own properties 
 - Inherited properties
-
-# Object.assign
-- Copy/merge enumerable own properties
