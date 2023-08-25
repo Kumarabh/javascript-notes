@@ -1,0 +1,8 @@
+
+# Object.freeze
+- direct properties of object can't be modified
+- used to freeze configuration objects
+
+Object.freeze(organisation);
+organisation.orgId = 'bsl';
+console.log(organisation) // ORG 01
