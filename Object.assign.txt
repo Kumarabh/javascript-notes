@@ -1,1 +1,2 @@
-
+# Object.assign
+- Copy/merge enumerable own properties
