@@ -1,0 +1,13 @@
+// Object.defineProperty()
+// has default property descriptors set to false. like Object.create
+const organisation = {
+  orgId: 'D9DDID9393',
+  orgName: 'ABC PVT LTD.'
+}
+
+Object.defineProperty(organisation,'headquarter', {
+    value: 'London',
+    enumerable: true
+})
+
+console.log(Object.getOwnPropertyDescriptors(organisation))
