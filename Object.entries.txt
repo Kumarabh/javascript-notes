@@ -1,0 +1,22 @@
+// Object.entries
+// iterate over enumerable own properties only
+const organisation = {
+  orgId: 'D9DDID9393',
+  orgName: 'ABC PVT LTD.'
+}
+
+Object.defineProperties(organisation,
+
+  {
+    'headquarter': {
+      value: 'London',
+      enumerable: true
+    },
+    'foundedBy': {
+      value: 'John Doe',
+    }
+  })
+
+for(let [key, value] of Object.entries(organisation)) {
+  console.log(key,':', value)
+} // foundedBy is missing. Because default propertyDescriptor is set to false
