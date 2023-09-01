@@ -1,0 +1,21 @@
+const organisation = {
+  orgId: 'D9DDID9393',
+  orgName: 'ABC PVT LTD.'
+}
+
+Object.defineProperties(organisation,
+
+  {
+    'headquarter': {
+      value: 'London',
+      enumerable: true
+    },
+    'foundedBy': {
+      value: 'John Doe',
+      enumerable: true
+    }
+  })
+
+Object.seal(organisation);
+console.log(Object.getPrototypeOf(organisation) === Object.prototype) // true
+
