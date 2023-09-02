@@ -1,0 +1,18 @@
+function Organisation(id, name) {
+
+  if(!new.target) throw Error('Cant be called without new keyword.')
+  this.OrganisationId = id;
+  this.OrganisationName = name;
+
+  
+}
+Organisation.prototype.getOrganisationDetails = function() {
+  return this.OrganisationName;
+}
+const o1 = new Organisation(1, 'ABC PVT LTD.');
+const o2 = new Organisation(1, 'DEF PVT LTD.');
+
+console.log(o1.getOrganisationDetails())
+console.log(o2.getOrganisationDetails())
+console.log(Object.getPrototypeOf(o1) === Organisation.prototype)// true
+console.log(Organisation.prototype === Organisation.prototype)// true
