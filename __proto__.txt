@@ -1,4 +1,4 @@
-// prototypal inheritence
+// Inheritence using __proto__ 
 
 // 1. prototypal linkage
 const organisation = {
