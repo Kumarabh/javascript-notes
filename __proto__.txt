@@ -1,0 +1,25 @@
+// prototypal inheritence
+
+// 1. prototypal linkage
+const organisation = {
+  orgId: 1393839,
+  orgName: 'ORG PVT LTD.'
+}
+
+const department  = {
+  deptId: 1,
+  deptName: 'Computer Science'
+}
+
+console.log(Object.getPrototypeOf(organisation) === Object.prototype)// true
+console.log(Object.getPrototypeOf(department) === Object.prototype)// true
+
+// **** Notes ****
+// 1. Both objects point to Object.prototype
+// 2. department doesn't own or inherit organisation properties
+
+console.log(department.orgId) // undefined
+
+// Let's establish inheritence using prototypal linkage (__proto__)
+department.__proto__ = organisation;
+console.log(department.orgId); // 1393839
