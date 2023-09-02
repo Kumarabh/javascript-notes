@@ -1,0 +1,30 @@
+function getUsers() {
+  const organisation = {
+    orgId: 1393839,
+    orgName: 'ORG PVT LTD.',
+    getInformationDetails() { 
+      return this.orgName.concat(' ', 
+      'founded by ', this.foundedBy, ' on ', this.foundedDate );
+    }
+  } // descriptors: true
+
+  const promise = new Promise((resolve, reject) => {
+    console.log('fetching...')
+    const random = Math.floor(Math.random() * 10);
+    console.log(random)
+    setTimeout(() => {
+      
+      if (random % 2 === 0)
+        resolve(organisation);
+      else
+        reject('request failed.')
+    }, 1000);
+  })
+
+  return promise
+}
+
+getUsers().then(
+  (data) => { console.log(data)},
+  (error) => {console.log(error)}
+)
