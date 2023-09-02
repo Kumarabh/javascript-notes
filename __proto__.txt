@@ -4,12 +4,12 @@
 const organisation = {
   orgId: 1393839,
   orgName: 'ORG PVT LTD.'
-}
+} // descriptors: true
 
 const department  = {
   deptId: 1,
   deptName: 'Computer Science'
-}
+} // descriptors: true
 
 console.log(Object.getPrototypeOf(organisation) === Object.prototype)// true
 console.log(Object.getPrototypeOf(department) === Object.prototype)// true
