@@ -1,0 +1,24 @@
+// Inheritence using Object.create
+const organisation = {
+  orgId: 1393839,
+  orgName: 'ORG PVT LTD.'
+} // descriptors: true
+
+Object.defineProperties(organisation, {
+  foundedBy: {value: 'John Doe', enumerable: true},
+  headquarter: {value: 'Liverpool'}
+}) // descriptors: false
+
+// Object.create inherits only enumerable own properties
+const department = Object.create(organisation, {
+  deptId: {value: 'Computer science', enumerable: true}
+}); 
+
+console.log(Object.getPrototypeOf(department) === organisation) // true
+console.log(Object.getPrototypeOf(organisation) === Object.prototype) // true
+
+// Own properties of department (deptId)
+console.log(Object.getOwnPropertyNames(department)) 
+
+// Inherited properties of department (orgId, orgName, foundedBy)
+console.log(Object.getPrototypeOf(department)) 
