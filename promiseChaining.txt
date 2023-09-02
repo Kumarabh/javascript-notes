@@ -1,0 +1,29 @@
+function getUsers() {
+  const users = [
+    { id: 1, firstName: 'John', lastName: 'Doe' },
+    { id: 2, firstName: 'James', lastName: 'Smith' },
+    { id: 3, firstName: 'Thomas', lastName: 'Shelby' },
+    { id: 4, firstName: 'Elenor', lastName: 'Shellstrop' },
+    { id: 5, firstName: 'Walter', lastName: 'White' }
+  ]
+
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(users);
+    }, 1000);
+
+  })
+
+  return promise;
+}
+const randomIndex = random(1, 5)
+
+getUsers().then((data) => data.find((element, index) => element.id === randomIndex))
+.then(data => console.log(data))
+.catch((error) => console.log(error))
+.finally(() => console.log('Completed'))
+
+
+function random(min, max) {
+  return Math.floor(min + Math.random() * (max - min + 1))
+}
