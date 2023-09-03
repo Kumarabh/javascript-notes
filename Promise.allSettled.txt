@@ -1,0 +1,21 @@
+// Promise.allSettled
+// Promise.allSettled() returns a pending promise that will be asynchronously fulfilled once every input promise has settled
+// with an array of objects that describes the result of each promise in the iterable object.
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('promise 1');
+  }, 1000);
+})
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('promise 2');
+  }, 2000);
+})
+
+Promise.allSettled([promise1, promise2])
+.then(data => console.log(data), (error) => console.log(error))
+.catch((err) => console.log(err))
+.finally(() => console.log('completed.'))
+
