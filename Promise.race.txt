@@ -1,4 +1,4 @@
-// Promise.race
+// Promise.race : returns a promise.
 // returns the first fulfilled promise (resolved or rejected)
 
 const promise1 = new Promise((resolve, reject) => {
