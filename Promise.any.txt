@@ -1,0 +1,22 @@
+// Promise.any : returns a promise. 
+// if all promises are resolved, returns the first resolved promise.
+// if any of the promise is resolved, returns the resolved promise, even if any promise got rejected earlier.
+// if all promises are rejected, returns the aggregation error object
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('promise 1');
+  }, 1000);
+})
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('promise 2');
+  }, 2000);
+})
+
+Promise.any([promise1, promise2])
+.then(data => console.log(data), (error) => console.log(error))
+.catch((err) => console.log(err))
+.finally(() => console.log('completed.'))
+
