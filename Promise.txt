@@ -1,3 +1,10 @@
+//A promise object has a state that can be one of the following:
+
+//1. Pending
+//2. Fulfilled with a value
+//3. Rejected for a reason
+
+
 function getUsers() {
   const organisation = {
     orgId: 1393839,
@@ -24,7 +31,12 @@ function getUsers() {
   return promise
 }
 
-getUsers().then(
-  (data) => { console.log(data)},
-  (error) => {console.log(error)}
-)
+function onFulfilled(users) {
+  console.log(users);
+}
+function onRejected(error) {
+  console.log(error);
+}
+
+const promise = getUsers();
+promise.then(onFulfilled, onRejected);
