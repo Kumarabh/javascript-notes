@@ -1,0 +1,34 @@
+// user.js
+const userJson = require('./assets/user-data.json') 
+
+function getUser(userId) {
+  const promise = new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      const result = userJson.find(user => user.id === userId);
+      if(result) resolve(result)
+      else reject('User not found.')
+    }, 2000);
+  })
+
+  return promise;
+}
+
+module.exports = {getUser}
+
+// server.js
+const {getUser} = require('./user.js')
+
+async function getData(userId) {
+  try {
+    const user = await getUser(userId)
+    console.log(user)
+
+  }
+  catch(err) {
+    console.log('user not found')
+  }
+
+}
+
+getData(3);
