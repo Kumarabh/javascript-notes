@@ -1,0 +1,5 @@
+Here are the main difference between a Map and a WeekMap:
+
+Elements of a WeakMap cannot be iterated.
+Cannot clear all elements at once.
+Cannot check the size of a WeakMap.
