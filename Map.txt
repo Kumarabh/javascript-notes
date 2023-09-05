@@ -1,21 +1,26 @@
 // Map
 // In map, Keys can be a string or object. In WeakMap, only object can be a key
 
-let john = {firstName: 'John', lastName: 'Doe', gender: 'Male'}
-const james = {firstName: 'James', lastName: 'Smith', gender: 'Male'}
-const elenor = {firstName: 'Elenor', lastName: 'Shellstrop', gender: 'Female'}
-const lisa = {firstName: 'Lisa', lastName: 'Roy', gender: 'Female'}
-const janet = {firstName: 'Janet', lastName: 'Joey', gender: 'Female'}
-// create a map object
+const john = {name: 'John Doe', gender: 'Male'};
+const james = {name: 'James Smith', gender: 'Male'};
+const elenor = {name: 'Elenor Shellstrop', gender: 'Female'};
+const david = {name: 'David Silva', gender: 'Male'};
+const lisa = {name: 'Lisa adams', gender: 'Female'}
+const joseph = {name: 'Joseph Schwimmer', gender: 'Male'};
+
 const users = new Map([
-    [john, 'admin'],
-    [james, 'IT'],
-    [elenor, 'Management'],
-    [lisa, 'Human Resource'],
-    ['David Scott', 'Sales']
+  [john, 'admin'],
+  [james, 'IT'],
+  [elenor, 'Sales'],
+  [lisa, 'HR'],
+  [david, 'Management'],
 ])
 
+const userKeys = Array.of(...users.keys())
+const userValues = Array.of(...users.values())
+const userEntries = Array.of(...users.entries())
+// convert iterator into array
 
-for(let [user, department] of users.entries()) {
-  console.log(user,' - ', department)
-}
+console.log(userKeys[2])
+console.log(userValues[2])
+console.log(userEntries)
