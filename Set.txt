@@ -1,0 +1,13 @@
+// set declaration type 1
+const users = new Set();
+users.add('admin').add('user').add('others');
+
+for(let user of users) {
+  console.log(user)
+}
+
+// set declaration type 2
+const userIds = new Set([101, 102, 103, 103, 104, 105])
+for(let id of userIds) {
+  console.log(id)
+}
