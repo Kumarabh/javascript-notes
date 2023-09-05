@@ -16,6 +16,10 @@ const users = new Map([
   [david, 'Management'],
 ])
 
+for(let [key, value] of users) {
+  console.log(key, '===> ', value)
+}
+
 const userKeys = Array.of(...users.keys())
 const userValues = Array.of(...users.values())
 const userEntries = Array.of(...users.entries())
