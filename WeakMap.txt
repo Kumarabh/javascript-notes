@@ -1,0 +1,21 @@
+# WeakMap
+// Map:- if an object loses it's reference, GC won't delete it from Map object.
+// WeakMap:- if an object loses it's reference, GC will delete it from WeakMap. And WeakMap will return undefined for that key
+
+let john = {firstName: 'John', lastName: 'Doe', gender: 'Male'}
+const james = {firstName: 'James', lastName: 'Smith', gender: 'Male'}
+const elenor = {firstName: 'Elenor', lastName: 'Shellstrop', gender: 'Female'}
+const lisa = {firstName: 'Lisa', lastName: 'Roy', gender: 'Female'}
+const janet = {firstName: 'Janet', lastName: 'Joey', gender: 'Female'}
+// create a map object
+const users = new WeakMap([
+    [john, 'admin'],
+    [james, 'IT'],
+    [elenor, 'Management'],
+    [lisa, 'Human Resource'],
+    [janet, 'Sales']
+])
+
+john = null;
+console.log(users.get(john)); // undefined
+console.log(users.get(james)); // IT
