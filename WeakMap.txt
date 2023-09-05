@@ -1,5 +1,5 @@
 # WeakMap
-// Map:- if an object loses it's reference, GC won't delete it from Map object.
+// Only object is accepted as keys
 // WeakMap:- if an object loses it's reference, GC will delete it from WeakMap. And WeakMap will return undefined for that key
 
 let john = {firstName: 'John', lastName: 'Doe', gender: 'Male'}
