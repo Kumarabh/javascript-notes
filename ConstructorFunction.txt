@@ -1,0 +1,39 @@
+// function Organisation(id, name) {
+//   if(!new.target) throw Error('new keyword missing.')
+//   this.id = id;
+//   this.name = name;
+
+//   this.getOrgId = function() {
+//     return this.id
+//   }
+// }
+
+// const obj1 = new Organisation(39393, 'Constantinople pvt ltd');
+// const obj2 = new Organisation(39393, 'Constantinople pvt ltd');
+// const obj3 = new Organisation(39393, 'Constantinople pvt ltd');
+
+// console.log(obj1)
+// console.log(obj2)
+// console.log(obj3)
+// three instances has it's own methods. So methods inside constructor functions aren't memory efficient.
+// So we can declare methods on prototype of constructor function. In this way a method can be shared across multiple objects.
+
+// ---------------------------------------------------------------------
+function Organisation(id, name) {
+  if(!new.target) throw Error('new keyword missing.')
+  this.id = id;
+  this.name = name;
+}
+
+Organisation.prototype.getOrgId = function() {
+  return this.id;
+}
+const obj1 = new Organisation(39393, 'Constantinople pvt ltd');
+const obj2 = new Organisation(39393, 'Constantinople pvt ltd');
+const obj3 = new Organisation(39393, 'Constantinople pvt ltd');
+
+console.log(obj1)
+console.log(obj2)
+console.log(obj3)
+
+console.log(obj1.getOrgId())
