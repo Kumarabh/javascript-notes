@@ -69,6 +69,14 @@ function greet(arg1, arg2) {
   console.log(arg1.concat(' ', this.firstName,' ', this.lastName, ', ', arg2));
 }
 
+function greet(greeting, message) {
+  console.log(greeting.concat(' ', this.firstName, ' ', message));
+}
+
+const person = {firstName: 'John', lastName: 'Doe'}
+greet.apply(person, ['Hey', 'How are you', 'ok'])
+
+
 const john = {firstName: 'John', lastName: 'Constantine'};
 
 greet.call(john, 'Hey', 'what is up')
