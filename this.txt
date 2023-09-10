@@ -1,3 +1,5 @@
+https://dmitripavlutin.com/differences-between-arrow-and-regular-functions/#:~:text=The%20arrow%20function%20doesn't,value%20from%20the%20outer%20function.
+
 Note:- // call, apply, bind method takes window object by default, if nothing is passed
 
 // -------------------------------------------------------------------------   Normal function
@@ -42,11 +44,10 @@ const result3 = test(); // window.organisationId
 console.log(result3); // undefined
 
 // -------------------------------------------------------------------------  Constructor invokation
-
+During a constructor invocation using new keyword this equals the newly created instance
 // JavaScript creates a new object and sets this to the newly created object
-// constructor
-function Organisation(orgId, orgName) {
 
+function Organisation(orgId, orgName) {
   if(!new.target) throw Error('invalid invokation of constructor');
 
   // this = {}
@@ -56,12 +57,10 @@ function Organisation(orgId, orgName) {
   // return this
 }
 
-
 const o1 = new Organisation('ORG001', 'Constantinople tech pvt ltd');
 // assigns the newly created object reference to o1
 
 console.log(o1); // organisation
-
 
 // ------------------------------------------------------------------------- indirect invokation
 
@@ -82,8 +81,16 @@ const john = {firstName: 'John', lastName: 'Constantine'};
 greet.call(john, 'Hey', 'what is up')
 
 // ------------------------------------------------------------------------- arrow function - (this) is always resolved lexically
-Contrary to a regular function, the indirect invocation of an arrow function using myArrowFunc.call(thisVal) or myArrowFunc.apply(thisVal) doesn't change the value of this: the context value always resolves lexically.
+
 The arrow function doesn't define its own execution context but resolves to the one from the outer function.
+
+No matter how or where being executed, this value inside of an arrow function always equals this value from the outer function. In other words, the arrow function resolves this lexically.
+
+Contrary to a regular function, the indirect invocation of an arrow function using myArrowFunc.call(thisVal) or myArrowFunc.apply(thisVal) doesn't change the value of this: the context value always resolves lexically.
+
+If you try to invoke an arrow function prefixed with new keyword, JavaScript throws an error meaning that an arrow function cannot be a constructor.
+
+Again (same as with this value), the arguments object is resolved lexically: the arrow function accesses arguments from the outer function.
 
 const organisation = {
 
@@ -99,4 +106,25 @@ const organisation = {
 }
 
 organisation.getOrgName();
+
+
+// ---------------------------------------
+
+// In class syntax, regular function and arrow functions both have this pointed to current instance
+
+class Organisation {
+  constructor(orgId, orgName) {
+    this.orgId = orgId;
+    this.orgName = orgName;
+  }
+
+  getOrgInfo() {
+    return this; // organisation
+  }
+
+  getOrgId = () => this // organisation
+}
+
+const o1 = new Organisation(123, 'ABC Pvt ltd');
+console.log(o1.getOrgId())
 
