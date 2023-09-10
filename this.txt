@@ -1,0 +1,74 @@
+Note:- // call, apply, bind method takes window object by default, if nothing is passed
+
+// -------------------------------------------------------------------------   Normal function
+
+ var x = 'John Doe';
+ let y = 'James Smith';
+ const z = 'Lisa Ray';
+
+ (function() {
+   console.log(this.x, this.y, this.z); 
+ John Doe undefined undefined
+ })()
+
+
+// -------------------------------------------------------------------------  Method function
+
+const organisation = {
+  organisationId: 101,
+  organisationName: 'Constantinople tech pvt ltd.',
+
+  getOrgName: function() {
+    return this.organisationId;
+  }
+}
+
+const department = {
+  organisationId: 'Dept101',
+  departmentId: 201,
+  departmentName: 'Computer Science & IT'
+};
+
+
+const result1 = organisation.getOrgName.call() //window.organisationId
+console.log(result1) // undefined
+
+
+const result2 = organisation.getOrgName.call(department) // department.organisationId
+console.log(result2) // Dept101
+
+const test = organisation.getOrgName;
+const result3 = test(); // window.organisationId
+console.log(result3); // undefined
+
+// -------------------------------------------------------------------------  Constructor invokation
+
+// JavaScript creates a new object and sets this to the newly created object
+// constructor
+function Organisation(orgId, orgName) {
+
+  if(!new.target) throw Error('invalid invokation of constructor');
+
+  // this = {}
+  this.orgId = orgId;
+  this.orgName = orgName;
+
+  // return this
+}
+
+
+const o1 = new Organisation('ORG001', 'Constantinople tech pvt ltd');
+// assigns the newly created object reference to o1
+
+console.log(o1); // organisation
+
+
+// ------------------------------------------------------------------------- indirect invokation
+
+function greet(arg1, arg2) {
+  console.log(arg1.concat(' ', this.firstName,' ', this.lastName, ', ', arg2));
+}
+
+const john = {firstName: 'John', lastName: 'Constantine'};
+
+greet.call(john, 'Hey', 'what is up')
