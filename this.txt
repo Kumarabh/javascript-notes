@@ -80,3 +80,23 @@ greet.apply(person, ['Hey', 'How are you', 'ok'])
 const john = {firstName: 'John', lastName: 'Constantine'};
 
 greet.call(john, 'Hey', 'what is up')
+
+// ------------------------------------------------------------------------- arrow function - (this) is always resolved lexically
+Contrary to a regular function, the indirect invocation of an arrow function using myArrowFunc.call(thisVal) or myArrowFunc.apply(thisVal) doesn't change the value of this: the context value always resolves lexically.
+The arrow function doesn't define its own execution context but resolves to the one from the outer function.
+
+const organisation = {
+
+  orgId: 4938,
+  orgName: 'abc tech pvt ltd',
+
+  getOrgName() {
+    console.log(this); // organisation
+    const uppercase = () => console.log(this) // organisation
+  },
+
+  getOrgId: () => console.log(this)// window
+}
+
+organisation.getOrgName();
+
