@@ -1,2 +1,31 @@
-- bind() makes a permanent context link and will always keep it. A bound function cannot change its linked context when using .call() or .apply() with a different context or even a rebound doesn't have any effect
-  // Only the constructor invocation of a bound function can change an already bound context, but this is not something you would normally do (constructor invocation must use regular, non-bound functions)
+# bind 
+- Makes a permanent context link and will always keep it. 
+- Once you bind the context of a funcion using .bind() method, the context will not be loss on extraction. neither it can be overridden by call, apply.
+- A bound function cannot change its linked context when using .call() or .apply() with a different context or even a rebound doesn't have any effect
+- Only the constructor invocation of a bound function can change an already bound context, but this is not something you would normally do (constructor 
+  invocation must use regular, non-bound functions)
+
+
+const organisation = {
+  orgId: 101,
+  orgName: 'abc tech',
+
+  getOrgId() {
+    return this.orgId;
+  }
+
+}
+orgId = 900;
+// Bind
+
+const getOrgIdBoundFn = organisation.getOrgId.bind({orgId: 39383938});
+console.log(getOrgIdBoundFn())
+
+// Extraction
+
+const test = organisation.getOrgId;
+console.log(test()) // undefined
+
+
+
+
