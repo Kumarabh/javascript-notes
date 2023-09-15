@@ -1,1 +1,2 @@
-![image](https://github.com/Kumarabh/javascript-notes/assets/25168256/5dfb8e54-fc8e-4653-b4d5-a41957884640)
+#1
+![image](https://github.com/Kumarabh/javascript-notes/assets/25168256/09f67203-e67f-4ff6-b236-deb919f76ed5)
