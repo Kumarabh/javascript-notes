@@ -1,0 +1,9 @@
+(function () {
+  var a = 10;
+  b = 20;
+})()
+
+console.log(typeof a === "undefined"); // true
+console.log(typeof b === "undefined"); // false : 20
+console.log(typeof c === "undefined"); // true
+
