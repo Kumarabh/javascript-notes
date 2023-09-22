@@ -1,3 +1,13 @@
+Variables declared without any keyword (e.g. var, let, const ) are called Accidental global variables.
+// Example:1 
+function fun(){
+    college = "Axis Colleges"; //Accidental global variable
+}
+fun();
+console.log(window.college) // Axis Colleges
+
+
+// Example: 2
 (function () {
   var a = 10;
   b = 20;
