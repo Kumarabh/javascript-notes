@@ -1,13 +1,14 @@
 Variables declared without any keyword (e.g. var, let, const ) are called Accidental global variables.
-// Example:1 
+# Example:1 
 function fun(){
     college = "Axis Colleges"; //Accidental global variable
 }
 fun();
 console.log(window.college) // Axis Colleges
 
+// ---------------------------------------------------------------------------------------
 
-// Example: 2
+# Example: 2
 (function () {
   var a = 10;
   b = 20;
@@ -16,4 +17,16 @@ console.log(window.college) // Axis Colleges
 console.log(typeof a === "undefined"); // true
 console.log(typeof b === "undefined"); // false : 20
 console.log(typeof c === "undefined"); // true
+
+
+# Example: 3
+
+// ---------------------------------------------------------------------------------------
+
+function fun(){
+    "use strict";
+    college = "Axis College"; //This will cause an error
+}
+school = "SVM"; //This will not cause an error
+fun();
 
